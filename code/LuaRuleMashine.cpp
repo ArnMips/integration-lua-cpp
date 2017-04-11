@@ -14,10 +14,6 @@ LuaRuleMashine::~LuaRuleMashine() {
 Object::PropertyFields LuaRuleMashine::getPropery(const Object & obj) {
     Object::PropertyFields drawProperty(field_.size());
 
-    //TODO: Как-то оптимизировать для различного числа полей параметров (lable, color, ets...)
-    //TODO: Что делать, если не будет найдено соответствие ? ;
-    //TODO: Добавить обработку ошибок
-
     for (size_t i(0); i < field_.size(); ++i) {
         lua_getglobal(L_, obj.getName().c_str());			            /// stack: table
         lua_getfield(L_, L_STACK_TOP_, field_[i].c_str());			    /// stack: table.key
@@ -28,7 +24,7 @@ Object::PropertyFields LuaRuleMashine::getPropery(const Object & obj) {
 }
 
 void LuaRuleMashine::initVectField_() {
-    //TODO: Как это можно реализовать без лишних удалений/добавлений в стек таблицы
+    //TODO: ГЉГ ГЄ ГЅГІГ® Г¬Г®Г¦Г­Г® Г°ГҐГ Г«ГЁГ§Г®ГўГ ГІГј ГЎГҐГ§ Г«ГЁГёГ­ГЁГµ ГіГ¤Г Г«ГҐГ­ГЁГ©/Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГ© Гў Г±ГІГҐГЄ ГІГ ГЎГ«ГЁГ¶Г»
     lua_getglobal(L_, L_FIELDS_TYPES_);                                   ///stack: table    
     const size_t numOfFields = luaL_len(L_, L_STACK_TOP_);        
     lua_pop(L_, 1);                                                      ///stack: 
