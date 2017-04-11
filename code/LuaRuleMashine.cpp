@@ -24,14 +24,13 @@ Object::PropertyFields LuaRuleMashine::getPropery(const Object & obj) {
 }
 
 void LuaRuleMashine::initVectField_() {
-    //TODO: Êàê ýòî ìîæíî ðåàëèçîâàòü áåç ëèøíèõ óäàëåíèé/äîáàâëåíèé â ñòåê òàáëèöû
-    lua_getglobal(L_, L_FIELDS_TYPES_);                                   ///stack: table    
+    lua_getglobal(L_, L_FIELDS_TYPES_);                                  ///stack: table    
     const size_t numOfFields = luaL_len(L_, L_STACK_TOP_);        
     lua_pop(L_, 1);                                                      ///stack: 
 
     for (int i(1); i <= numOfFields; ++i) {
-        lua_getglobal(L_, L_FIELDS_TYPES_);                               ///stack: table 
-        lua_rawgeti(L_, L_STACK_TOP_, i);                                 ///stack: table[i] 
+        lua_getglobal(L_, L_FIELDS_TYPES_);                              ///stack: table 
+        lua_rawgeti(L_, L_STACK_TOP_, i);                                ///stack: table[i] 
         std::string nameField = lua_tostring(L_, L_STACK_TOP_);
         field_.push_back(nameField);                        
         lua_pop(L_, 1);                                                  ///stack: 
