@@ -1,4 +1,5 @@
 #pragma once
+#pragma comment(lib, "lua53.lib");
 #include <lua.hpp>
 #include <string>
 #include <vector>
@@ -6,17 +7,17 @@
 
 class LuaRuleMashine {
 public:
-    LuaRuleMashine(std::string fileName);
+	LuaRuleMashine(std::string fileName);
 	~LuaRuleMashine();
 	
-    Object::PropertyFields getPropery(const Object& obj);
+	Object::PropertyFields getPropery(const Object& obj);
 
 private:
 	lua_State *L_;
-    const char* L_FIELDS_TYPES_ = "fieldTypes";
+	const char* L_FIELDS_TYPES_ = "fieldTypes";
 	const int L_STACK_TOP_ = -1;
 	const int L_STACK_DOWN_ = 1;
-    std::vector<std::string> field_;
+	std::vector<std::string> field_;
 
-    void initVectField_();
+	void initVectField_();
 };
