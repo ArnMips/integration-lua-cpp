@@ -1,0 +1,70 @@
+coastline	Cascade_Volcanoes	2028	sand
+coastline	Flora_of_the_Cascade_Range	1685	stone
+coastline	Mount_Adams	1220	sand
+coastline	Mount_Hood	1291	stone
+coastline	Mount_Rainier	1228	stone
+coastline	Mount_Rainier_National_Park	1459	over
+coastline	Mountain_passes_of_the_Cascades	2079	over
+coastline	North_Cascades	1771	sand
+lighthouse	Avery_Rock_Light	00ff00	173
+lighthouse	Baker_Island_Light	ff0000	117
+lighthouse	Bass_Harbor_Head_Light	ff0000	61
+lighthouse	Bear_Island_Light	ffa500	177
+lighthouse	Blue_Hill_Bay_Light	00ff00	111
+lighthouse	Boon_Island_Light	808080	163
+lighthouse	Browns_Head_Light	00ff00	53
+lighthouse	Burnt_Coat_Harbor_Light	ff0000	145
+lighthouse	Burnt_Island_Light	00ff00	82
+lighthouse	Cape_Elizabeth_Lights	00ff00	63
+lighthouse	Cape_Neddick_Light	808080	58
+lighthouse	Crabtree_Ledge_Light	ff0000	96
+lighthouse	Curtis_Island_Light	ff0000	81
+lighthouse	Deer_Island_Thorofare_Light	ffa500	94
+lighthouse	Dice_Head_Light	00ff00	178
+lighthouse	Doubling_Point_Light	ffa500	167
+lighthouse	Doubling_Point_Range_Front_Light	808080	158
+lighthouse	Doubling_Point_Range_Rear_Light	00ff00	91
+lighthouse	Eagle_Island_Light	808080	50
+lighthouse	Egg_Rock_Light	ffa500	167
+lighthouse	Fort_Point_Light	808080	116
+lighthouse	Franklin_Island_Light	00ff00	160
+lighthouse	Goat_Island_Light	808080	51
+lighthouse	Goose_Rocks_Light	808080	163
+lighthouse	Great_Duck_Island_Light	ffa500	78
+lighthouse	Grindel_Point_Light	808080	117
+lighthouse	Halfway_Rock_Light	00ff00	79
+lighthouse	Hendricks_Head_Light	808080	160
+lighthouse	Heron_Neck_Light	ff0000	138
+lighthouse	Indian_Island_Light	808080	52
+lighthouse	The_Cuckolds_Light	00ff00	90
+rock	Denali	2498818	1
+rock	Grand_Teton	1343816	0
+rock	Maroon_Peak	2219295	0
+rock	Mount_Blackburn	1475418	0
+rock	Mount_Bona	1634397	1
+rock	Mount_Foraker	1342709	1
+rock	Mount_Saint_Elias	1067962	0
+rock	South_River	1912215	0
+rock	West_Buffalo	1502250	1
+rock	Windom_Peak	2484958	0
+underwater_rock	Granodiorite	9	
+underwater_rock	Granophyre	8	
+underwater_rock	Harzburgite	6	
+underwater_rock	Hornblendite	5	
+underwater_rock	Hyaloclastite	9	
+underwater_rock	Icelandite	7	
+underwater_rock	Ignimbrite	6	
+underwater_rock	Ijolite	7	
+underwater_rock	Kimberlite	6	
+underwater_rock	Komatiite	9	
+underwater_rock	Lamproite	10	
+underwater_rock	Lamprophyre	5	
+underwater_rock	Latite	3	
+underwater_rock	Lherzolite	3	
+underwater_rock	Molokini_Crater	5	
+underwater_rock	Monzogranite	8	
+underwater_rock	Monzonite	10	
+underwater_rock	Nepheline_syenite	6	
+underwater_rock	Nephelinite	10	
+underwater_rock	Norite	8	
+underwater_rock	Obsidian	10	

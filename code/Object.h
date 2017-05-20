@@ -1,26 +1,110 @@
 #pragma once
+#pragma optimize("", off) 
 
 #include <string>
 #include <vector>
 
-class Object{
+// Класс, ответственный за работу с типом объекта
+class ObjType {
 public:
-	//PropertyFields: first - key | second - value
-	typedef std::vector<std::pair<std::string, std::string> > PropertyFields;
+    enum Types {
+        Lighthouse,
+        Rock,
+        Underwater_rock,
+        Coastline
+    };
+    ObjType(Types type);
+    ObjType(std::string type); ///Внимание, используется поиск и сравнение строк
+    ObjType(size_t type);
 
-	void setType(std::string& objectType);
-	void setName(std::string& objectName);
-	void setCoordinates(const std::vector<std::pair<double, double>>& objectCoordinates);
-	void setDrawProperty(const PropertyFields& objectDrawProperty);
-
-	std::string getType() const;
-	std::string getName() const;
-	std::vector<std::pair<double, double>> getCoordinates() const;
-	PropertyFields getDrawProperty() const;
+    static size_t getNumOfTypes();
+    Types toEnum() const;
+    int toInt() const;
+    std::string toString() const;
 
 private:
-	std::vector<std::pair<double, double>> coordinates_;
-	std::string name_;
-	std::string type_;
-	PropertyFields drawProperty_;
+    Types type_;
+    static std::string stringTypes_[];
 };
+
+// Структура свойст для отрисовки объекта
+class Property {
+public:
+    Property(ObjType objtype, unsigned int color, char caracter);
+    ObjType getObjType() const;
+    unsigned int getColor() const;
+    char getCaracter() const;
+private:
+    ObjType objtype;
+    unsigned int color;
+    char caracter;
+};
+
+
+// ---- Классы объектов ---- 
+
+class Object {
+public:
+    Object(const ObjType& t, const std::string& n);
+    std::string getName() const;
+
+    ObjType getType() const;
+
+private:
+    ObjType type_;
+    std::string name_;
+};
+
+class Lighthouse : public Object {
+public:
+    Lighthouse(const std::string& n);
+    unsigned int getColor() const;
+    double getBrightness() const;
+    void setColor(const unsigned int c);
+    void setBrightness(const double b);
+
+private:
+    unsigned int color_;
+    double brightness_;
+};
+
+class Rock : public Object {
+public:
+    Rock(const std::string& n);
+    double getAltitude() const;
+    bool isVolcano() const;
+    void setAltitude(const double a);
+    void setVolcano(const bool v);
+
+private:
+    double altitude_;
+    bool isVolcano_;
+};
+
+class UnderwaterRock : public Object {
+public:
+    UnderwaterRock(const std::string& n);
+    double getDepth() const;
+    void setDepth(const double d);
+
+private:
+    double depth_;
+};
+
+class Coastline : public Object {
+public:
+    Coastline(const std::string& n);
+    double getLength() const;
+    std::string getTypeOfBeach() const;
+    void setLength(const double l);
+    void setTypeOfBeach(const std::string& t);
+
+private:
+    double length_;
+    //TODO: Изменить тип типа поверхности на enum?
+    std::string typeOfBeach_;
+};
+
+
+//Загрузка объектов из файла
+std::vector<Object*> getObjectsFromFile(const std::string& fileName);

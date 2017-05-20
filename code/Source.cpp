@@ -1,34 +1,39 @@
-#include "LuaRuleMashine.h"
-#include "ObjectLoader.h"
-
 #include <iostream>
 #include <vector>
+#include <string>
+
+#include "LuaRuleMashine.h"
+#include "Object.h"
 
 using namespace std;
 
-int main()
-{
-    ObjectLoader loader("..\\resourse\\objects.txt");
-    std::vector<Object> objects = loader.getObjects();
+void printProperty(const string& objName, const Property& property);
+void cleanObjects(vector<Object*> obj);
 
-    LuaRuleMashine luaRuleMashine("..\\resourse\\DrawRule.lua");
+int main() {
+    LuaRuleMashine lrm("DrawRule.lua");
+    vector<Object*> obj = getObjectsFromFile("objects.txt");
 
-    for (auto& it : objects) {
-        it.setDrawProperty(luaRuleMashine.getPropery(it));
-    }
-    
-    // - OUT - //
-    for (auto& it : objects) {
-        cout << it.getName() << " " << it.getType() << "\n";
-        for (auto& itc : it.getCoordinates()) {
-            cout << itc.first << " " << itc.second << "\n";
-        }
-        for (int i(0); i < it.getDrawProperty().size(); ++i) {
-            cout << it.getDrawProperty()[i].first << ": " << it.getDrawProperty()[i].second << "\n";
-        }
-        cout << endl;
+    for (auto it : obj) {
+        Property objProperty = lrm.getPropery(it);
+        
+        printProperty(it->getName(), objProperty);
     }
 
-    system("PAUSE");
+    cleanObjects(obj);
     return 0;
+}
+
+void printProperty(const string & objName, const Property & property) {
+    cout << "\n----- " << objName
+        << "\ntype: " << property.getObjType().toString()
+        << "\ncolor: " << hex << property.getColor() << dec
+        << "\ncaracter: " << property.getCaracter()
+        << endl;
+}
+
+void cleanObjects(vector<Object*> obj) {
+    for (auto& it : obj) {
+        delete it;
+    }
 }

@@ -1,23 +1,30 @@
 #pragma once
-#pragma comment(lib, "lua53.lib");
+#pragma optimize("", off) 
+
 #include <lua.hpp>
 #include <string>
 #include <vector>
+
 #include "Object.h"
 
 class LuaRuleMashine {
 public:
-	LuaRuleMashine(std::string fileName);
+    LuaRuleMashine(std::string fileName);
 	~LuaRuleMashine();
 	
-	Object::PropertyFields getPropery(const Object& obj);
+    Property getPropery(Object* obj);
 
 private:
 	lua_State *L_;
-	const char* L_FIELDS_TYPES_ = "fieldTypes";
 	const int L_STACK_TOP_ = -1;
 	const int L_STACK_DOWN_ = 1;
-	std::vector<std::string> field_;
+    
+    //Извлекает с вершины стека структуру Property объекта
+    Property getPropertyFromStack(lua_State* L);
 
-	void initVectField_();
+    // Берет из Lua-стека таблицу и возвращает эквивалентную ей структуру Param
+    static int l_getParam(lua_State* L);
+
+    //Добавляет в Lua-скрипт структуру с определенными константами
+    void loadObjectsParam(lua_State* L);
 };
